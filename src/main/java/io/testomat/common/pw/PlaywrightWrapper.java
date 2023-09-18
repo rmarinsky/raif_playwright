@@ -7,6 +7,7 @@ import com.microsoft.playwright.options.ViewportSize;
 import io.qameta.allure.Step;
 import lombok.Data;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -24,7 +25,8 @@ public class PlaywrightWrapper {
                             .setDevtools(Configuration.devTools)
                             .setSlowMo(Configuration.poolingInterval)
                             .setTracesDir(Paths.get(Configuration.tracesPath))
-            );
+                            .setExecutablePath(Configuration.executablePath.isBlank() ? null :
+                                    Path.of(Configuration.executablePath)));
             return new PWStage(null, null, playwright, browser);
         });
     }

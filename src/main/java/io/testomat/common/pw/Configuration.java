@@ -14,4 +14,6 @@ public class Configuration {
     public static String tracesPath = System.getProperty("user.dir") + "/target/pw"; //for gradle /build/pw
     public static boolean saveTraces = true;
 
+    public static String executablePath = null; //System.getProperty("browser_executable_path")
+
 }
